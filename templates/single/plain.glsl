@@ -11,14 +11,14 @@ ${common.transform_uniforms()}
 
 uniform float speed;
 
-void main() {
+void main() 
+{
 	float ratio = screenSize.y/screenSize.x;
 	ex_uv.y *= ratio;
 
 	vec3 outpos = ipos;
 	gl_Position = (projection*camera)*vec4(outpos, 1.0);
 }
-
 </%block>
 
 <%block name="fragmentshader">
@@ -29,11 +29,11 @@ smooth in vec2 ex_uv;
 
 uniform sampler2D tex;
 
-void main() {
+void main() 
+{
 	vec4 teks = texture2D(tex, ex_uv + plus );
 	vec4 col = vec4(teks.rgb, 1.0);
 
 	outcol = col;
 }
-
 </%block>
